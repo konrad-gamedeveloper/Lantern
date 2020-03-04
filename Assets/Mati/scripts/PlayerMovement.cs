@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public bool drawDebugRaycasts = true;
+    public bool drawDebugRaycasts = true;       //pokazywanie promieni
 
-    [Header("Movment Propertise")]
+    [Header("Movment Propertise")]              //pokazywanie własciwosci poruszania sie w inspektorze
     public float speed = 8f;
     public float crouchSpeedDivisor = 3f;
     public float coyoteDuration = .05f;
@@ -23,15 +23,15 @@ public class PlayerMovement : MonoBehaviour
     public float footOffset = .4f;
     public float headClearance = .5f;
     public float groundDistance = .2f;
-    public LayerMask groundLayer;
+    public LayerMask groundLayer;               //pokazywanie własciwosci poruszania sie w inspektorze koniec
 
-    [Header("Status Flags")]
+    [Header("Status Flags")]                    //pokazywanie flag
     public bool isOnGround;
     public bool isJumping;
     public bool isCrouching;
-    public bool isHeadBlocked;
+    public bool isHeadBlocked;                  //pokazywanie flag koniec
 
-    PlayerInput input;
+    PlayerInput input;                          
     BoxCollider2D bodyCollider;
     Rigidbody2D rigidBody;
 
@@ -120,8 +120,7 @@ public class PlayerMovement : MonoBehaviour
     {
 
     
-    // Update is called once per frame
-    
+   
     
         if (input.jumpPressed && !isJumping && (isOnGround || coyoteTime > Time.time))
         {
@@ -195,9 +194,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (drawDebugRaycasts)
         {
-            //...determine the color based on if the raycast hit...
+            
             Color color = hit ? Color.red : Color.green;
-            //...and draw the ray in the scene view
+           
             Debug.DrawRay(pos + offset, rayDirection * length, color);
         }
 
